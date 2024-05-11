@@ -1,0 +1,44 @@
+/* 全ての要素に適用するスタイル */
+* {
+  text-align: center;
+}
+
+/* div要素に適用するスタイル */
+div {
+  font-size: 3em;
+}
+
+/* table要素に適用するスタイル */
+table {
+  width: 100%;
+}
+
+/* tr要素に適用するスタイル */
+tr {
+  height: 6em;
+}
+
+/* button要素に適用するスタイル */
+button {
+  font-size: large;
+  width: 80%;
+  height: 4em;
+}
+
+/* ヘッダーのスタイル */
+.header {
+  background-color: #f2f2f2; /* 背景色を薄い灰色に設定 */
+  padding: 20px; /* パディングを20pxに設定 */
+  text-align: center; /* テキストを中央揃えに設定 */
+}
+
+/* ボタンのスタイル */
+.button-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.button-container button {
+  /* ここにボタンのスタイルを記述 */
+  margin: 0 10px; /* 左右に10pxのマージンを追加 */
+}
