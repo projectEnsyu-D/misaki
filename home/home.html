@@ -1,51 +1,94 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>App Sample</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="css/home.css">
-    </style>
-  </head>
-  <body>
-    <div class="header">App Sample</div>
-    <div class="button-container">
-      <button type="button" onclick="location.replace('app1.html');">Application 1</button>
-      <button type="button" onclick="location.replace('app2.html');">Application 2</button>
-      <button type="button" onclick="location.replace('app3.html');">Application 3</button>
-      <button type="button" onclick="location.replace('app4.html');">Application 4</button>
-      <button type="button" onclick="location.replace('app5.html');">Application 5</button>
-    </div>
+<html lang="ja">
+  <html>
+    <head>
+      <!-- 文字コード、ビューポート、タイトル、スクリプト、スタイルシートの設定 -->
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>D-Cam</title>
+      <script src="./js/home.js"></script>
+      <link href="./css/home.css" rel="stylesheet" />
+    </head>
+    <body>
+      <!---------ここからheader--------->
+      <header class="header">
+        <div class="header-inner">
+          <!-- ロゴ部分-->
+          <a class="header-logo" href="home.html">
+            <img src="./img/header-logo.png" alt="D-Cam" />
+          </a>
+          <!-- メニューボタン-->
+          <button class="toggle-menu-button"></button>
+          <!-- サイトメニュー-->
+          <div class="header-site-menu">
+            <nav class="site-menu">
+              <ul>
+                <li><a href="bus.html">BUS</a></li>
+                <li><a href="lunch.html">LUNCH</a></li>
+                <li><a href="class.html">CLASS</a></li>
+                <li><a href="todo.html">TODO</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
 
-    <table>
-      <tr>
-        <td>
-          <button type="button" onclick="location.replace('app1.html');">
-            Application 1
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button type="button" onclick="location.replace('app2.html');">
-            Application 2
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button type="button" onclick="location.replace('app3.html');">
-            Application 3
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button type="button" onclick="location.replace('app4.html');">
-            Application 4
-          </button>
-        </td>
-      </tr>
-    </table>
-  </body>
+      <!-------ここからmain--------->
+      <main>
+        <table>
+          <tr>
+            <td>
+              <!-- バス時刻表へのボタン -->
+              <button type="button" onclick="location.replace('app1.html');">
+                Bus Schedule
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <!-- ランチ選択へのボタン -->
+              <button type="button" onclick="location.replace('app2.html');">
+                Lunch Selection
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <!-- 次の授業へのボタン -->
+              <button type="button" onclick="location.replace('app3.html');">
+                Next Class
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <!-- todoへのボタン -->
+              <button type="button" onclick="location.replace('app4.html');">
+                To Do List
+              </button>
+            </td>
+          </tr>
+        </table>
+      </main>
+
+      <!------ここからfooter-------->
+      <footer class="footer">
+        <!-- フッターメニュー -->
+        <nav class="site-menu">
+          <ul>
+            <li><a href="bus.html">BUS</a></li>
+            <li><a href="lunch.html">LUNCH</a></li>
+            <li><a href="class.html">CLASS</a></li>
+            <li><a href="todo.html">TODO</a></li>
+          </ul>
+        </nav>
+        <!-- フッターロゴ -->
+        <a class="footer-logo" href="home.html">
+          <img src="./img/footer-logo.png" alt="D-Cam" />
+        </a>
+        <!-- 著作権表示 -->
+        <p class="copyright"><small>&copy;teamD</small></p>
+      </footer>
+    </body>
+  </html>
 </html>

@@ -1,27 +1,183 @@
-/* 全ての要素に適用するスタイル */
-* {
-  text-align: center;
-}
-/* div要素に適用するスタイル */
-div {
-  font-size: 3em;
-}
-/* ヘッダーのスタイル */
-.header {
-  background-color: #f2f2f2; /* 背景色を薄い灰色に設定 */
-  padding: 20px; /* パディングを20pxに設定 */
-  text-align: center; /* テキストを中央揃えに設定 */
+@charset "utf-8";
+
+/* 全ての要素とその前後の要素に対する設定 */
+*,
+::before,
+::after {
+  padding: 0; /* 内側の余白を0に設定 */
+  margin: 0; /* 外側の余白を0に設定 */
+  box-sizing: border-box; /* ボックスのサイズ計算をborder-boxモデルに設定 */
 }
 
-/* ボタンのスタイル */
-.button-container {
+/* リスト要素に対する設定 */
+ul,
+ol {
+  list-style: none; /* リストマーカーを非表示に設定 */
+}
+
+/* リンク要素に対する設定 */
+a {
+  color: inherit; /* 色を親要素から継承 */
+  text-decoration: none; /* 下線を非表示に設定 */
+}
+
+/* body要素に対する設定 */
+body {
+  font-family: sans-serif; /* フォントをサンセリフに設定 */
+  font-size: 16px; /* フォントサイズを16pxに設定 */
+  color: #000000; /* 文字色を黒に設定 */
+  line-height: 1; /* 行の高さを1に設定 */
+  background-color: #ffffff; /* 背景色を白に設定 */
+}
+
+/* ここからheader */
+/* img要素に対する設定 */
+img {
+  max-width: 100%; /* 画像の最大幅を100%に設定 */
+}
+
+/* .header-innerクラスに対する設定 */
+.header-inner {
+  max-width: 1200px; /* 最大幅を1200pxに設定 */
+  height: 110px; /* 高さを110pxに設定 */
+  margin-left: auto; /* 左マージンを自動に設定 */
+  margin-right: auto; /* 右マージンを自動に設定 */
+  padding-left: 40px; /* 左パディングを40pxに設定 */
+  padding-right: 40px; /* 右パディングを40pxに設定 */
+  display: flex; /* フレックスボックスに設定 */
+  justify-content: space-between; /* アイテム間の余白を均等に設定 */
+}
+
+/* メニューボタンの設定（デフォルトでは非表示） */
+.toggle-menu-button {
+  display: none;
+}
+
+/* ヘッダーロゴの設定 */
+.header-logo {
+  display: block;
+  width: 170px;
+}
+
+/* サイトメニューのリスト設定 */
+.site-menu ul {
   display: flex;
-  justify-content: space-around;
 }
 
-.button-container button {
-  font-size: large;
-  width: 80%;
-  height: 4em;
-  margin: 0 10px; /* 左右に10pxのマージンを追加 */
+/* サイトメニューのリンク設定 */
+.site-menu ul li a {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/* サイトメニューのフォント設定 */
+.site-menu ul li a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+/* ここからfooter */
+/* フッターの基本設定 */
+.footer {
+  color: #ffffff;
+  background-color: #24211b;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* フッターロゴの設定 */
+.footer-logo {
+  display: block;
+  width: 235px;
+  margin-top: 30px;
+}
+
+/* 著作権表示の設定 */
+.copyright {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+/* 以下はモバイル向け */
+/* 以下に書いたものは800px以下の時だけ適用される */
+@media (max-width: 800px) {
+  /* ここからheader */
+  /* サイトメニューのリスト設定（モバイル向け） */
+  .site-menu ul {
+    display: block; /* 縦並びに変更 */
+    text-align: center; /* 中央揃えになる */
+  }
+
+  /* ヘッダーの基本設定（モバイル向け） */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    height: 50px;
+    z-index: 10;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* ヘッダー内部の設定（モバイル向け） */
+  .header-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100%;
+    position: relative; /* これにより、header-logoの子要素に対して、header-logoを基準にした位置指定ができるようになる */
+  }
+
+  /* ヘッダーロゴの設定（モバイル向け） */
+  .header-logo {
+    width: 100px;
+  }
+
+  /* ヘッダーサイトメニューの設定（モバイル向け） */
+  .header-site-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    color: #ffffff;
+    background-color: #736e62;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    display: none;
+  }
+
+  /* メニューボタンの設定（モバイル向け） */
+  .toggle-menu-button {
+    display: block;
+    width: 44px;
+    height: 34px;
+    background-image: url(/img/common-img/icon-menu.png);
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent; /* transparentは透明という意味 */
+    border: none; /* 枠線削除 */
+    border-radius: 0; /* 角丸解除 */
+    outline: none; /* タップ時の枠線削除 */
+  }
+
+  /* 以下footer（モバイル向け） */
+  /* メインコンテンツの設定（モバイル向け） */
+  .main {
+    padding-top: 50px;
+  }
+
+  /* フッターロゴの設定（モバイル向け） */
+  .footer-logo {
+    margin-top: 60px;
+  }
+
+  /* 著作権表示の設定（モバイル向け） */
+  .copyright {
+    margin-top: 50px;
+  }
 }
