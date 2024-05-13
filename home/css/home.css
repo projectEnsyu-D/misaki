@@ -1,11 +1,5 @@
 @charset "utf-8";
 
-/* 全ての要素に適用するスタイル */
-/* テキストを中央揃えに設定 */
-* {
-  text-align: center;
-}
-
 /* 全ての要素とその前後の要素に対する設定 */
 *,
 ::before,
@@ -166,7 +160,7 @@ img {
     display: block;
     width: 44px;
     height: 34px;
-    background-image: url(/img/common-img/icon-menu.png);
+    background-image: url(/img/icon-menu.png);
     background-size: 50%;
     background-position: center;
     background-repeat: no-repeat;
@@ -201,8 +195,8 @@ img {
 /* button要素に適用するスタイル */
 button {
   font-size: large;
-  width: 80%;
-  height: 4em;
+  width: 200%; /* ボタンの幅を100%に設定 */
+  height: 7em;
 }
 
 /* ボタンのスタイル */
@@ -213,6 +207,28 @@ button {
 
 /* ボタンコンテナ内のボタンのスタイル */
 .button-container button {
-  /* ここにボタンのスタイルを記述 */
   margin: 0 10px; /* 左右に10pxのマージンを追加 */
+}
+
+/* main要素に適用するスタイル */
+main {
+  display: flex; /* Flexboxを使用 */
+  flex-wrap: wrap; /* 要素がコンテナを超える場合に折り返す */
+  justify-content: space-around; /* 横方向の間隔を均等にする */
+  align-items: center; /* 縦方向の位置を中央にする */
+  margin-top: 70px; /* 上部にマージンを追加 */
+  margin-bottom: 70px; /* 下部にマージンを追加 */
+}
+
+/* table要素に適用するスタイル */
+table {
+  width: 100%; /* 幅を100%に設定 */
+  display: flex; /* Flexboxを使用 */
+  flex-wrap: wrap; /* 要素がコンテナを超える場合に折り返す */
+}
+
+/* td要素に適用するスタイル */
+td {
+  flex: 1; /* Flexboxの成長を有効にし、均等にスペースを分ける */
+  padding: 10px; /* パディングを追加 */
 }
