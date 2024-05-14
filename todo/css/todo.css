@@ -181,3 +181,24 @@ img {
     margin-top: 50px;
   }
 }
+
+/* main要素に適用するスタイル */
+main {
+  font-size: 62.5%; /* フォントサイズを設定 */
+  display: flex; /* Flexboxを使用 */
+  flex-wrap: wrap; /* 要素がコンテナを超える場合に折り返す */
+  justify-content: space-around; /* 横方向の間隔を均等にする */
+  align-items: center; /* 縦方向の位置を中央にする */
+  margin-top: 5.0rem; /* 上部にマージンを追加 */
+  margin-bottom: 5.0rem; /* 下部にマージンを追加 */
+}
+
+form {
+    font-size: 62.5%; /* フォントサイズを設定 */
+  display: flex; /* Flexboxを使用 */
+  flex-wrap: wrap; /* 要素がコンテナを超える場合に折り返す */
+  justify-content: space-around; /* 横方向の間隔を均等にする */
+  align-items: center; /* 縦方向の位置を中央にする */
+  margin-top: 5.0rem; /* 上部にマージンを追加 */
+  margin-bottom: 5.0rem; /* 下部にマージンを追加 */
+}

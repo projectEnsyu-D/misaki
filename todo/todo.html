@@ -33,7 +33,26 @@
     </header>
     <!-------ここからmain--------->
     <main>
-      <!---ここにそれぞれの内容を書いていく-->
+      <h1>課題ToDoリスト</h1>
+      <div class="form">
+        <form action="" method="post">
+          <p>
+            <label
+              >課題：<br /><input
+                type="tel"
+            /></label>
+          </p>
+          <p>
+            <label
+              >日付：<br /><input
+                type="date"
+                value="<?php echo date('Y-m-d'); ?>"
+            /></label>
+          </p>
+          <p><input type="submit" value="送信" /></p>
+        </form>
+      </div>
+      <ul id="ToDoList"></ul>
     </main>
     <!------ここからfooter-------->
     <footer class="footer">
