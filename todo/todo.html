@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>D-Cam</title>
-    <script src="./js/todo.js"></script>
     <link href="./css/todo.css" rel="stylesheet" />
   </head>
   <body>
@@ -33,27 +32,31 @@
     </header>
     <!-------ここからmain--------->
     <main>
-      <h1>課題ToDoリスト</h1>
-      <div class="form">
-        <form action="" method="post">
-          <p>
-            <label
-              >課題：<br /><input
-                type="text"
-            /></label>
-          </p>
-          <p>
-            <label
-              >日付：<br /><input
-                type="date"
-                value="<?php echo date('Y-m-d'); ?>"
-            /></label>
-          </p>
-          <p><input type="submit" value="送信" /></p>
+      <div>
+        <form>
+          <label for="content">内容</label>:<input
+            id="content"
+            name="content"
+            type="text"
+          /><br />
+          <label for="date">日付</label>:<input
+            id="date"
+            name="date"
+            type="date"
+          /><br />
+          <label for="time">時間</label>:<input
+            type="time"
+            name="time"
+            id="time"
+          /><br />
+          <input type="button" id="button" value="登録" />
         </form>
       </div>
-      <ul id="ToDoList"></ul>
+      <div id="task-space">
+        <!-- ここにpタグでToDoリスト(task)を列挙する -->
+      </div>
     </main>
+    <script src="./js/todo.js"></script>
     <!------ここからfooter-------->
     <footer class="footer">
       <!-- フッターメニュー -->
