@@ -34,22 +34,28 @@ const currentTime = new Date().getTime();
 // currentTimeの方が大きければ期日を過ぎたことになる
 // taskの表示
 const displayTasks = () => {
+  // 現在の時間の取得
+  const currentTime = new Date().getTime();
+
   // tasksをtimelimitでソート
   tasks.sort((a, b) => a.timelimit - b.timelimit);
 
+  // 過ぎたタスクを削除
+  tasks = tasks.filter(t => currentTime < t.timelimit);
+
   let htmlTags = "";
   tasks.map((t, index) => {
-    // もし期日を過ぎていたらoverクラスを付けてスタイルに取り消し線を追加する
     htmlTags += `
-      <p class=${currentTime >= t.timelimit ? "over" : ""}>${t.content}, ${new Date(t.timelimit)}
+      <p>${t.content}, ${new Date(t.timelimit)}
       <button onclick="deleteTask(${index})">削除</button>
       </p>
     `;
   });
   taskSpace.innerHTML = htmlTags;
-};
 
-// 他のコード...
+  // ローカルストレージを更新
+  localStorage.setItem("local-tasks", JSON.stringify(tasks));
+};
 
 // タスクを削除する関数
 const deleteTask = (index) => {
