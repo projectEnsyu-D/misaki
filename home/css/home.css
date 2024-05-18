@@ -210,6 +210,30 @@ button {
   margin: 0 5rem; /* 左右に10pxのマージンを追加 */
 }
 
+.bus-button {
+  background-image: url('../img/bus.jpg');
+  background-size: cover; /* 画像をボタンにフィットさせる */
+  background-repeat: no-repeat; /* 画像を繰り返さない */
+}
+
+.lunch-button {
+  background-image: url('../img/lunch.jpg');
+  background-size: cover; /* 画像をボタンにフィットさせる */
+  background-repeat: no-repeat; /* 画像を繰り返さない */
+}
+
+.class-button {
+  background-image: url('../img/class.jpg');
+  background-size: cover; /* 画像をボタンにフィットさせる */
+  background-repeat: no-repeat; /* 画像を繰り返さない */
+}
+
+.todo-button {
+  background-image: url('../img/ToDo.jpg');
+  background-size: cover; /* 画像をボタンにフィットさせる */
+  background-repeat: no-repeat; /* 画像を繰り返さない */
+}
+
 /* main要素に適用するスタイル */
 main {
   font-size: 62.5%; /* フォントサイズを設定 */
