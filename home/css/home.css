@@ -194,68 +194,64 @@ img {
 
 /* button要素に適用するスタイル */
 button {
-  font-size: large;
-  width: 20rem; /* ボタンの幅を100%に設定 */
-  height: 7em;
+  font-size: large; /* ボタンのフォントサイズを大きく設定 */
+  font-weight: bold; /* ボタンの文字を太くする */
+  width: 20rem; /* ボタンの幅を20remに設定 */
+  height: 7em; /* ボタンの高さを7emに設定 */
+  display: flex; /* ボタンの内部をフレックスボックスとして扱う */
+  justify-content: center; /* ボタン内のアイテムを水平方向の中央に配置 */
+  align-items: center; /* ボタン内のアイテムを垂直方向の中央に配置 */
 }
 
-/* ボタンのスタイル */
-.button-container {
-  display: flex;
-  justify-content: space-around;
-}
-
-/* ボタンコンテナ内のボタンのスタイル */
-.button-container button {
-  margin: 0 5rem; /* 左右に10pxのマージンを追加 */
+/* 各ボタンに適用する背景画像とそのスタイル */
+.bus-button,
+.lunch-button,
+.class-button,
+.todo-button {
+  background-size: 100% auto; /* 背景画像の横幅をボタンの横幅に合わせる */
+  background-repeat: no-repeat; /* 画像を繰り返さない */
+  background-position: center; /* 画像を中央に配置 */
+  background-color: rgb(249, 249, 249); /* 背景色を白に設定 */
 }
 
 .bus-button {
-  background-image: url('../img/bus.jpg');
-  background-size: cover; /* 画像をボタンにフィットさせる */
-  background-repeat: no-repeat; /* 画像を繰り返さない */
+  background-image: url('../img/bus.jpg'); /* バスボタンの背景画像を設定 */
 }
 
 .lunch-button {
-  background-image: url('../img/lunch.jpg');
-  background-size: cover; /* 画像をボタンにフィットさせる */
-  background-repeat: no-repeat; /* 画像を繰り返さない */
+  background-image: url('../img/lunch.jpg'); /* ランチボタンの背景画像を設定 */
 }
 
 .class-button {
-  background-image: url('../img/class.jpg');
-  background-size: cover; /* 画像をボタンにフィットさせる */
-  background-repeat: no-repeat; /* 画像を繰り返さない */
+  background-image: url('../img/map.jpg'); /* クラスボタンの背景画像を設定 */
 }
 
 .todo-button {
-  background-image: url('../img/ToDo.jpg');
-  background-size: cover; /* 画像をボタンにフィットさせる */
-  background-repeat: no-repeat; /* 画像を繰り返さない */
+  background-image: url('../img/ToDo.jpg'); /* ToDoボタンの背景画像を設定 */
 }
 
 /* main要素に適用するスタイル */
 main {
-  font-size: 62.5%; /* フォントサイズを設定 */
-  display: flex; /* Flexboxを使用 */
+  font-size: 62.5%; /* フォントサイズを62.5%に設定 */
+  display: flex; /* main要素内をフレックスボックスとして扱う */
   flex-wrap: wrap; /* 要素がコンテナを超える場合に折り返す */
   justify-content: space-around; /* 横方向の間隔を均等にする */
   align-items: center; /* 縦方向の位置を中央にする */
-  margin-top: 4rem; /* 上部にマージンを追加 */
-  margin-bottom: 4rem; /* 下部にマージンを追加 */
+  margin-top: 4rem; /* 上部に4remのマージンを追加 */
+  margin-bottom: 4rem; /* 下部に4remのマージンを追加 */
 }
 
 /* table要素に適用するスタイル */
 table {
-  width: 8rem; /* 幅を設定 */
-  display: flex; /* Flexboxを使用 */
-  justify-content: center; /* 横方向の位置を中央にする */
+  width: 8rem; /* テーブルの幅を8remに設定 */
+  display: flex; /* テーブルをフレックスボックスとして扱う */
+  justify-content: center; /* テーブル内のアイテムを水平方向の中央に配置 */
   flex-wrap: wrap; /* 要素がコンテナを超える場合に折り返す */
-  align-items: center; /* 縦方向の位置を中央にする */
+  align-items: center; /* テーブル内のアイテムを垂直方向の中央に配置 */
 }
 
 /* td要素に適用するスタイル */
 td {
-  flex: 1; /* Flexboxの成長を有効にし、均等にスペースを分ける */
-  padding: 0.5rem; /* パディングを追加 */
+  flex: 1; /* td要素が均等にスペースを分けるように設定 */
+  padding: 0.5rem; /* td要素に0.5remのパディングを追加 */
 }
