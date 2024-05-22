@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+/* 全ての要素とその前後の要素に対する設定 */
+*,
+::before,
+::after {
+  padding: 0; /* 内側の余白を0に設定 */
+  margin: 0; /* 外側の余白を0に設定 */
+  box-sizing: border-box; /* ボックスのサイズ計算をborder-boxモデルに設定 */
+}
+
+/* リスト要素に対する設定 */
+ul,
+ol {
+  list-style: none; /* リストマーカーを非表示に設定 */
+}
+
+/* リンク要素に対する設定 */
+a {
+  color: inherit; /* 色を親要素から継承 */
+  text-decoration: none; /* 下線を非表示に設定 */
+}
+
+/* ここからfooter */
+/* フッターのスタイル */
+.footer {
+    color: #ffffff;
+    background-color: #24211b;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* フッターロゴのスタイル */
+  .footer-logo {
+    display: block;
+    width: 235px;
+    margin-top: 30px;
+  }
+  
+  /* コピーライトのスタイル */
+  .copyright {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+
+  /* 以下はモバイル向け */
+/* 以下に書いたものは800px以下の時だけ適用される */
+@media (max-width: 800px) {
+
+
+    /* 以下footer */
+    /* モバイル向けメインコンテンツのスタイル */
+    .main {
+      padding-top: 50px;
+    }
+  
+    /* モバイル向けフッターロゴのスタイル */
+    .footer-logo {
+      margin-top: 60px;
+    }
+  
+    /* モバイル向けフッター内の電話番号のスタイル */
+    .footer-tel {
+      font-size: 20px;
+    }
+  
+    /* モバイル向けコピーライトのスタイル */
+    .copyright {
+      margin-top: 50px;
+    }
+  }
