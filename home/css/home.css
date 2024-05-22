@@ -212,6 +212,15 @@ button {
   background-repeat: no-repeat; /* 画像を繰り返さない */
   background-position: center; /* 画像を中央に配置 */
   background-color: rgb(249, 249, 249); /* 背景色を白に設定 */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  text-shadow: 1px 1px 10px #4b2c14;
 }
 
 .bus-button {
