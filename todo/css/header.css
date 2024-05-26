@@ -27,6 +27,10 @@ img {
   max-width: 100%; /* 画像の最大幅を100%に設定 */
 }
 
+.header {
+  border-bottom: 1px solid black; /* ヘッダーの下に黒線を追加 */
+}
+
 /* .header-innerクラスに対する設定 */
 .header-inner {
   max-width: 1200px; /* 最大幅を1200pxに設定 */
