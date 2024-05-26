@@ -42,7 +42,9 @@ const displayTasks = () => {
       </p>
     `;
   });
-  taskSpace.innerHTML = htmlTags;
+  
+  // task-output要素にタスクを表示
+  document.getElementById('task-output').innerHTML = htmlTags;
 };
 
 // タスクを削除する関数
