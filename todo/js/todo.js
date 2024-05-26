@@ -11,6 +11,17 @@ let tasks = [];
 // 現在の時間の取得
 const currentTime = new Date().getTime();
 
+// 日時をフォーマットする関数
+function formatDate(date) {
+  const year = date.getFullYear();
+  const month = ("0" + (date.getMonth() + 1)).slice(-2); // 月は0から始まるため、1を足す
+  const day = ("0" + date.getDate()).slice(-2);
+  const hours = ("0" + date.getHours()).slice(-2);
+  const minutes = ("0" + date.getMinutes()).slice(-2);
+
+  return `${year}/${month}/${day} ${hours}:${minutes}`;
+}
+
 // currentTimeの方が大きければ期日を過ぎたことになる
 // taskの表示
 const displayTasks = () => {
@@ -26,15 +37,12 @@ const displayTasks = () => {
   let htmlTags = "";
   tasks.map((t, index) => {
     htmlTags += `
-      <p>${t.content}, ${new Date(t.timelimit)}
+      <p>${t.content}, ${formatDate(new Date(t.timelimit))}
       <button onclick="deleteTask(${index})">削除</button>
       </p>
     `;
   });
   taskSpace.innerHTML = htmlTags;
-
-  // ローカルストレージを更新
-  localStorage.setItem("local-tasks", JSON.stringify(tasks));
 };
 
 // タスクを削除する関数
@@ -96,6 +104,11 @@ const addTask = () => {
     // ローカルストレージに格納するときはJSON.stringify()
     localStorage.setItem("local-tasks", JSON.stringify(tasks));
     displayTasks();
+
+    // 入力欄をクリア
+    content.value = '';
+    date.value = '';
+    time.value = '';
   }
 };
 
