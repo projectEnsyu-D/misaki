@@ -16,17 +16,21 @@ const oneWeekLater = currentTime + 604800000; // 1週間後の時間
 
 // 日時をフォーマットする関数
 function formatDate(date) {
-  const year = date.getFullYear();
+  const year = date.getFullYear(); // 年を取得
   const month = ("0" + (date.getMonth() + 1)).slice(-2); // 月は0から始まるため、1を足す
-  const day = ("0" + date.getDate()).slice(-2);
-  const hours = ("0" + date.getHours()).slice(-2);
-  const minutes = ("0" + date.getMinutes()).slice(-2);
+  const day = ("0" + date.getDate()).slice(-2); // 日付を取得
+  const hours = ("0" + date.getHours()).slice(-2); // 時間を取得
+  const minutes = ("0" + date.getMinutes()).slice(-2); // 分を取得
 
+  // フォーマットした日時を返す
   return `${year}/${month}/${day} ${hours}:${minutes}`;
 }
 
+// タスクを表示する関数
 const displayTasks = () => {
-  let htmlTags = ""; // ここでhtmlTagsを初期化
+  // ここでhtmlTagsを初期化
+  let htmlTags = "";
+  // task-outputの要素を取得
   const taskOutput = document.getElementById("task-output");
 
   // 現在の時間の取得
@@ -44,7 +48,6 @@ const displayTasks = () => {
     </div>
   `;
   });
-  // 他の部分は変更なし
 
   // tasksが空でない場合のみborderedクラスを追加
   if (tasks.length > 0) {
@@ -55,19 +58,24 @@ const displayTasks = () => {
     taskOutput.style.display = "none"; // タスクが存在しない場合は非表示
   }
 
+  // htmlTagsをtaskOutputに表示
   taskOutput.innerHTML = htmlTags;
 };
 
 // タスクを削除する関数
 const deleteTask = (index) => {
+  // タスクを削除
   tasks.splice(index, 1);
+  // 更新したタスクを保存
   localStorage.setItem("local-tasks", JSON.stringify(tasks));
   displayTasks();
 };
 
 // ページ読み込み時にローカルストレージからタスクを取得し、期限が過ぎたタスクを削除
 window.onload = () => {
+  // ローカルストレージからタスクを取得
   const storedTasks = localStorage.getItem("local-tasks");
+  // タスクが存在する場合、tasksに格納
   if (storedTasks) {
     tasks = JSON.parse(storedTasks);
     deleteExpiredTasks();
@@ -76,6 +84,7 @@ window.onload = () => {
 
 // 期限が過ぎたタスクを削除する関数
 const deleteExpiredTasks = () => {
+  // 現在の時間を取得
   const now = Date.now();
   tasks = tasks.filter(task => {
     // タスクの期限から1週間後であれば削除
@@ -125,6 +134,7 @@ const addTask = () => {
   if (!content.value || !date.value || !time.value) {
     alert("全項目を入力してください");
   } else {
+    // 入力された日時を配列に格納
     const timearr = createDatetimeArray(date.value, time.value);
     // taskに格納する際、unix時間にする
     // new Dateに日時を指定する際、月だけ1少ない数じゃないと翌月になる
