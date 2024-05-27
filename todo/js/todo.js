@@ -11,6 +11,9 @@ let tasks = [];
 // 現在の時間の取得
 const currentTime = new Date().getTime();
 
+// 週間後の時間の計算
+const oneWeekLater = currentTime + 604800000; // 1週間後の時間
+
 // 日時をフォーマットする関数
 function formatDate(date) {
   const year = date.getFullYear();
@@ -22,9 +25,10 @@ function formatDate(date) {
   return `${year}/${month}/${day} ${hours}:${minutes}`;
 }
 
-// currentTimeの方が大きければ期日を過ぎたことになる
-// taskの表示
 const displayTasks = () => {
+  let htmlTags = ""; // ここでhtmlTagsを初期化
+  const taskOutput = document.getElementById("task-output");
+
   // 現在の時間の取得
   const currentTime = new Date().getTime();
 
@@ -32,19 +36,28 @@ const displayTasks = () => {
   tasks.sort((a, b) => a.timelimit - b.timelimit);
 
   // 過ぎたタスクを削除
-  tasks = tasks.filter(t => currentTime < t.timelimit);
-
-  let htmlTags = "";
-  tasks.map((t, index) => {
+  tasks = tasks.filter((t) => currentTime < t.timelimit);
+  // tasksの中身を表示
+  tasks.forEach((task, index) => {
     htmlTags += `
-      <p>${t.content}, ${formatDate(new Date(t.timelimit))}
-      <button onclick="deleteTask(${index})">削除</button>
-      </p>
-    `;
+    <div class="task-item">
+      <p>${task.content}, ${formatDate(new Date(task.timelimit))}
+      <button onclick="deleteTask(${index})">削除</button></p>
+    </div>
+  `;
   });
-  
-  // task-output要素にタスクを表示
-  document.getElementById('task-output').innerHTML = htmlTags;
+  // 他の部分は変更なし
+
+  // tasksが空でない場合のみborderedクラスを追加
+  if (tasks.length > 0) {
+    taskOutput.classList.add("bordered");
+    taskOutput.style.display = "block"; // タスクが存在する場合は表示
+  } else {
+    taskOutput.classList.remove("bordered");
+    taskOutput.style.display = "none"; // タスクが存在しない場合は非表示
+  }
+
+  taskOutput.innerHTML = htmlTags;
 };
 
 // タスクを削除する関数
@@ -107,10 +120,11 @@ const addTask = () => {
     localStorage.setItem("local-tasks", JSON.stringify(tasks));
     displayTasks();
 
-    // 入力欄をクリア
-    content.value = '';
-    date.value = '';
-    time.value = '';
+    /* 入力欄をクリア
+    content.value = "";
+    date.value = "";
+    time.value = "";
+    */
   }
 };
 

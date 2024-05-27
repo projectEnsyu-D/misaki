@@ -38,23 +38,26 @@ main {
   flex-direction: column; /* 縦方向に要素を並べる */
   justify-content: space-around; /* 横方向の間隔を均等にする */
   align-items: center; /* 縦方向の位置を中央にする */
-  margin-bottom: 5.0rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 form {
-    font-size: 62.5%; /* フォントサイズを設定 */
+  font-size: 62.5%; /* フォントサイズを設定 */
   display: flex; /* Flexboxを使用 */
   flex-wrap: wrap; /* 要素がコンテナを超える場合に折り返す */
   justify-content: space-around; /* 横方向の間隔を均等にする */
   align-items: center; /* 縦方向の位置を中央にする */
-  margin-top: 3.0rem; /* 上部にマージンを追加 */
-  margin-bottom: 5.0rem; /* 下部にマージンを追加 */
+  margin-top: 3rem; /* 上部にマージンを追加 */
+  margin-bottom: 5rem; /* 下部にマージンを追加 */
 }
 
 #input-area {
-  margin-bottom: 2.0rem; /* 入力エリアと出力エリアの間にマージンを追加 */
+  margin-bottom: 2rem; /* 入力エリアと出力エリアの間にマージンを追加 */
 }
 
-#task-output {
-  margin-top: 1.0rem; /* 上部にマージンを追加 */
+#task-output p {
+  border: 1px solid #000000; /* 枠線を追加 */
+  padding: 1rem; /* 内側の余白を追加 */
+  margin-bottom: 1rem; /* 下部にマージンを追加 */
 }
