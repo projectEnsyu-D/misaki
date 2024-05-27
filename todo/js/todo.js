@@ -35,8 +35,6 @@ const displayTasks = () => {
   // tasksをtimelimitでソート
   tasks.sort((a, b) => a.timelimit - b.timelimit);
 
-  // 過ぎたタスクを削除
-  tasks = tasks.filter((t) => currentTime < t.timelimit);
   // tasksの中身を表示
   tasks.forEach((task, index) => {
     htmlTags += `
@@ -66,6 +64,29 @@ const deleteTask = (index) => {
   localStorage.setItem("local-tasks", JSON.stringify(tasks));
   displayTasks();
 };
+
+// ページ読み込み時にローカルストレージからタスクを取得し、期限が過ぎたタスクを削除
+window.onload = () => {
+  const storedTasks = localStorage.getItem("local-tasks");
+  if (storedTasks) {
+    tasks = JSON.parse(storedTasks);
+    deleteExpiredTasks();
+  }
+};
+
+// 期限が過ぎたタスクを削除する関数
+const deleteExpiredTasks = () => {
+  const now = Date.now();
+  tasks = tasks.filter(task => {
+    // タスクの期限から1週間後であれば削除
+    return now < task.timelimit + 7 * 24 * 60 * 60 * 1000;
+  });
+  // 更新したタスクを保存
+  localStorage.setItem("local-tasks", JSON.stringify(tasks));
+};
+
+// 1時間ごとに期限が過ぎたタスクを削除
+setInterval(deleteExpiredTasks, 60 * 60 * 1000);
 
 // localStorageに存在するかどうかの確認
 // 存在すればそのままtasksに格納
@@ -120,11 +141,10 @@ const addTask = () => {
     localStorage.setItem("local-tasks", JSON.stringify(tasks));
     displayTasks();
 
-    /* 入力欄をクリア
+    // 入力欄をクリア
     content.value = "";
     date.value = "";
     time.value = "";
-    */
   }
 };
 
