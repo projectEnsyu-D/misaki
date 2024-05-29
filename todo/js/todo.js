@@ -11,9 +11,6 @@ let tasks = [];
 // 現在の時間の取得
 const currentTime = new Date().getTime();
 
-// 週間後の時間の計算
-const oneWeekLater = currentTime + 604800000; // 1週間後の時間
-
 // 日時をフォーマットする関数
 function formatDate(date) {
   const year = date.getFullYear(); // 年を取得
@@ -39,15 +36,20 @@ const displayTasks = () => {
   // tasksをtimelimitでソート
   tasks.sort((a, b) => a.timelimit - b.timelimit);
 
-  // tasksの中身を表示
-  tasks.forEach((task, index) => {
-    htmlTags += `
-    <div class="task-item">
+// tasksの中身を表示
+tasks.forEach((task, index) => {
+  // 期限が過ぎているかどうかを確認
+  const isExpired = task.timelimit < currentTime;
+  // 期限が過ぎている場合は、"expired"クラスを適用
+  const taskClass = isExpired ? 'task-item expired' : 'task-item';
+
+  htmlTags += `
+    <div class="${taskClass}">
       <p>${task.content}, ${formatDate(new Date(task.timelimit))}
       <button onclick="deleteTask(${index})">削除</button></p>
     </div>
   `;
-  });
+});
 
   // tasksが空でない場合のみborderedクラスを追加
   if (tasks.length > 0) {

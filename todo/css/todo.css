@@ -42,6 +42,7 @@ main {
   margin-bottom: 3rem;
 }
 
+/* h1要素に適用するスタイル */
 form {
   font-size: 62.5%; /* フォントサイズを設定 */
   display: flex; /* Flexboxを使用 */
@@ -52,12 +53,49 @@ form {
   margin-bottom: 5rem; /* 下部にマージンを追加 */
 }
 
-#input-area {
-  margin-bottom: 2rem; /* 入力エリアと出力エリアの間にマージンを追加 */
+form label {
+    font-size: 1rem; /* 文字を大きくする */
+    color: #000000; /* 文字色を黒に設定 */
+    margin-right: 0.3rem; /* 右にマージンを追加 */
 }
 
+/* 入力欄に適用するスタイル */
+form input[type="text"], form input[type="date"], form input[type="time"] {
+  font-size: 1.2rem; /* 文字を大きくする */
+  color: #000000; /* 文字色を黒に設定 */
+  background-color: #f5fbfe; /* 入力欄の背景色を薄灰色に設定 */
+  border: none; /* 枠線を削除 */
+  padding: 0.5rem; /* 内側の余白を追加 */
+  cursor: pointer; /* マウスカーソルを指マークに変更 */
+  border-radius: 10px; /* 角を丸くする */
+}
+
+/* ボタンに適用するスタイル */
+form input[type="button"] {
+  font-size: 1.2rem; /* 文字を大きくする */
+  color: #ffffff; /* 文字色を白に設定 */
+  background-color: #56a8ff; /* ボタンの背景色を青に設定 */
+  border: none; /* 枠線を削除 */
+  padding: 0.5rem 1rem; /* 内側の余白を追加 */
+  cursor: pointer; /* マウスカーソルを指マークに変更 */
+  border-radius: 10px; /* 角を丸くする */
+}
+
+/* ボタンにマウスが乗った時のスタイル */
+form input[type="button"]:hover {
+  background-color: #0056b3; /* ボタンの背景色を濃い青に設定 */
+}
+
+/* 出力エリアに適用するスタイル */
 #task-output p {
   border: 1px solid #000000; /* 枠線を追加 */
   padding: 1rem; /* 内側の余白を追加 */
   margin-bottom: 1rem; /* 下部にマージンを追加 */
+  border-radius: 10px; /* 角を丸くする */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* 影をつける */
+}
+
+/* 期限切れのタスクに適用するスタイル */
+.expired {
+  background-color: #ffadad; /* 背景色を赤に設定 */
 }
