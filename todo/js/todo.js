@@ -13,14 +13,20 @@ const currentTime = new Date().getTime();
 
 // 日時をフォーマットする関数
 function formatDate(date) {
-  const year = date.getFullYear(); // 年を取得
   const month = ("0" + (date.getMonth() + 1)).slice(-2); // 月は0から始まるため、1を足す
   const day = ("0" + date.getDate()).slice(-2); // 日付を取得
+
+  // フォーマットした日時を返す
+  return `${month}/${day}`;
+}
+
+// 日時をフォーマットする関数
+function formatTime(date) {
   const hours = ("0" + date.getHours()).slice(-2); // 時間を取得
   const minutes = ("0" + date.getMinutes()).slice(-2); // 分を取得
 
   // フォーマットした日時を返す
-  return `${year}/${month}/${day} ${hours}:${minutes}`;
+  return `${hours}:${minutes}`;
 }
 
 // タスクを表示する関数
@@ -45,7 +51,7 @@ tasks.forEach((task, index) => {
 
   htmlTags += `
     <div class="${taskClass}">
-      <p>${task.content}, ${formatDate(new Date(task.timelimit))}
+      <p>${formatDate(new Date(task.timelimit))} ,${formatTime(new Date(task.timelimit))} ,${task.content}
       <button onclick="deleteTask(${index})">削除</button></p>
     </div>
   `;
