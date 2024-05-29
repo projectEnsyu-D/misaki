@@ -98,4 +98,5 @@ form input[type="button"]:hover {
 /* 期限切れのタスクに適用するスタイル */
 .expired {
   background-color: #ffadad; /* 背景色を赤に設定 */
+  border-radius: 10px; /* 角を丸くする */
 }
