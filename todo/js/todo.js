@@ -136,9 +136,8 @@ const createDatetimeArray = (date, time) => {
   return datetimearr;
 };
 
-// task追加の関数
+// タスクを追加する関数
 const addTask = () => {
-  // 入力フォームの存在性チェック
   if (!content.value || !date.value || !time.value) {
     alert("全項目を入力してください");
   } else {
@@ -153,18 +152,29 @@ const addTask = () => {
       timearr[3],
       timearr[4]
     );
-    // ローカルへ保存前にtasksに格納する
-    tasks.push({ content: content.value, timelimit: limitdate.getTime() });
-    // ローカルストレージに格納するときはJSON.stringify()
-    localStorage.setItem("local-tasks", JSON.stringify(tasks));
-    displayTasks();
 
-    // 入力欄をクリア
-    content.value = "";
-    date.value = "";
-    time.value = "";
+    // 現在の日時とタスクの期限を比較
+    const now = new Date();
+    const oneWeekAgo = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 7);
+    if (limitdate < oneWeekAgo) {
+      alert("期限が1週間以上前です。");
+    } else {
+      // ローカルへ保存前にtasksに格納する
+      tasks.push({ content: content.value, timelimit: limitdate.getTime() });
+      // ローカルストレージに格納するときはJSON.stringify()
+      localStorage.setItem("local-tasks", JSON.stringify(tasks));
+      displayTasks();
+
+      // 入力欄をクリア
+      content.value = "";
+      date.value = "";
+      time.value = "";
+    }
   }
 };
+
+// フォームに入力してボタンを押したらtasksに追加
+button.addEventListener("click", addTask);
 
 // フォームに入力してボタンを押したらtasksに追加
 button.addEventListener("click", addTask);

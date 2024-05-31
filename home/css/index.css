@@ -65,6 +65,7 @@ button {
   display: flex; /* ボタンの内部をフレックスボックスとして扱う */
   justify-content: center; /* ボタン内のアイテムを水平方向の中央に配置 */
   align-items: center; /* ボタン内のアイテムを垂直方向の中央に配置 */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* 各ボタンに適用する背景画像とそのスタイル */
@@ -84,7 +85,7 @@ button {
   justify-content: center;
   align-items: center;
   color: #ffffff;
-  text-shadow: 1px 1px 10px #4b2c14;
+  text-shadow: 1px 1px 10px #b6781c;
 }
 
 .bus-button {
