@@ -1,118 +1,109 @@
-/* img要素に対する設定 */
+/*ここからheader*/
 img {
-  max-width: 100%; /* 画像の最大幅を100%に設定 */
+  max-width: 100%;
 }
 
 .header {
-  border-bottom: 1px solid black; /* ヘッダーの下に黒線を追加 */
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* 影をつける */
+  border-bottom: 1.5px solid black; /* 黒線を追加 */
 }
 
-/* .header-innerクラスに対する設定 */
 .header-inner {
-  max-width: 1200px; /* 最大幅を1200pxに設定 */
-  height: 110px; /* 高さを110pxに設定 */
-  margin-left: auto; /* 左マージンを自動に設定 */
-  /* 右マージンは明示的に設定されていませんが、margin-leftと同様に自動に設定されます */
+  max-width: 1200px;
+  height: 110px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-/* メニューボタンのスタイル（デフォルトでは非表示） */
+
 .toggle-menu-button {
   display: none;
 }
 
-/* ヘッダーロゴのスタイル */
 .header-logo {
   display: block;
   width: 170px;
 }
 
-/* サイトメニューのスタイル */
 .site-menu ul {
   display: flex;
 }
 
-/* サイトメニュー内のリンクのスタイル */
 .site-menu ul li a {
   margin-left: 20px;
   margin-right: 20px;
 }
 
-/* サイトメニュー内のリンクのフォントスタイル */
 .site-menu ul li a {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
 }
 
-/* 以下はモバイル向け */
-/* 以下に書いたものは800px以下の時だけ適用される */
+/*以下はモバイル向け*/
+/*以下に書いたものは800px以下の時だけ適用される*/
 @media (max-width: 800px) {
-    /* ここからheader */
-    /* モバイル向けサイトメニューのスタイル */
-    .site-menu ul {
-      display: block; /*縦並びに変更*/
-      text-align: center; /*中央揃えになる*/
-    }
-  
-    /* モバイル向けサイトメニュー内のリストアイテムのスタイル */
-    .site-menu li {
-      margin-top: 20px;
-    }
-  
-    /* モバイル向けヘッダーのスタイル */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background-color: #ffffff;
-      height: 50px;
-      z-index: 10;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    }
-  
-    /* モバイル向けヘッダー内部のスタイル */
-    .header-inner {
-      padding-left: 20px;
-      padding-right: 20px;
-      height: 100%;
-      position: relative; /*これにより、header-logoの子要素に対して、header-logoを基準にした位置指定ができるようになる*/
-    }
-  
-    /* モバイル向けヘッダーロゴのスタイル */
-    .header-logo {
-      width: 100px;
-    }
-  
-    /* モバイル向けヘッダーサイトメニューのスタイル */
-    .header-site-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      color: #ffffff;
-      background-color: #736e62;
-      padding-top: 30px;
-      padding-bottom: 50px;
-      display: none;
-    }
-  
-    /* モバイル向けヘッダーサイトメニューの表示スタイル */
-    .header-site-menu.is-show {
-      display: block;
-    }
-  
-    /* モバイル向けメニューボタンのスタイル */
-    .toggle-menu-button {
-      display: block;
-      width: 44px;
-      height: 34px;
-      background-image: url(/img/icon-menu.png);
-      background-size: 50%;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: transparent; /*transparentは透明という意味*/
-      border: none; /*枠線削除*/
-      border-radius: 0; /*角丸解除*/
-      outline: none; /*タップ時の枠線削除*/
-    }
+  /*ここからheader*/
+  .site-menu ul {
+    display: block; /*縦並びに変更*/
+    text-align: center; /*中央揃えになる*/
+  }
+
+  .site-menu li {
+    margin-top: 20px;
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    height: 50px;
+    z-index: 10;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .header-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100%;
+    position: relative; /*これにより、header-logoの子要素に対して、header-logoを基準にした位置指定ができるようになる*/
+  }
+
+  .header-logo {
+    width: 100px;
+  }
+
+  .header-site-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    color: #ffffff;
+    background-color: #736e62;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    display: none;
+  }
+
+  .header-site-menu.is-show {
+    display: block;
+  }
+
+  .toggle-menu-button {
+    display: block;
+    width: 44px;
+    height: 34px;
+    background-image: url(/img/common-img/icon-menu.png);
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent; /*transparentは透明という意味*/
+    border: none; /*枠線削除*/
+    border-radius: 0; /*角丸解除*/
+    outline: none; /*タップ時の枠線削除*/
+  }
 }

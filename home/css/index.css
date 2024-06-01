@@ -84,7 +84,10 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+  color: #ffffff;/* 日付を太字にするスタイル */
+.task-date {
+  font-weight: bold;
+}
   text-shadow: 1px 1px 10px #b6781c;
 }
 
