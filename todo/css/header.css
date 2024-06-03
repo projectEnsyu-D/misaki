@@ -3,13 +3,10 @@ img {
   max-width: 100%;
 }
 
-.header {
-  border-bottom: 1.5px solid black; /* 黒線を追加 */
-}
 
 .header-inner {
   max-width: 1200px;
-  height: 110px;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
   padding-left: 40px;

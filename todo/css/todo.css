@@ -37,6 +37,18 @@ body {
   flex-direction: column; /* 要素を縦方向に並べる */
 }
 
+/* title要素に適用するスタイル */
+.title {
+  color: #ffffff;
+  background-color: #24211b;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+
 /* main要素に適用するスタイル */
 main {
   font-size: 62.5%; /* フォントサイズを設定 */
