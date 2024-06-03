@@ -175,6 +175,3 @@ const addTask = () => {
 
 // フォームに入力してボタンを押したらtasksに追加
 button.addEventListener("click", addTask);
-
-// フォームに入力してボタンを押したらtasksに追加
-button.addEventListener("click", addTask);
