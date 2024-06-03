@@ -49,12 +49,12 @@ tasks.forEach((task, index) => {
   // 期限が過ぎている場合は、"expired"クラスを適用
   const taskClass = isExpired ? 'task-item expired' : 'task-item';
 
-  htmlTags += `
-    <div class="${taskClass}">
-      <p>${formatDate(new Date(task.timelimit))} ,${formatTime(new Date(task.timelimit))} ,${task.content}
-      <button onclick="deleteTask(${index})">削除</button></p>
-    </div>
-  `;
+htmlTags += `
+  <div class="${taskClass}">
+    <p>${formatDate(new Date(task.timelimit))} ,${formatTime(new Date(task.timelimit))} ,${task.content}
+    <button class="delete-button" onclick="deleteTask(${index})">削除</button></p>
+  </div>
+`;
 });
 
   // tasksが空でない場合のみborderedクラスを追加
