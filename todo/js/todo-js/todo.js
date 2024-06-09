@@ -42,20 +42,22 @@ const displayTasks = () => {
   // tasksをtimelimitでソート
   tasks.sort((a, b) => a.timelimit - b.timelimit);
 
-// tasksの中身を表示
-tasks.forEach((task, index) => {
-  // 期限が過ぎているかどうかを確認
-  const isExpired = task.timelimit < currentTime;
-  // 期限が過ぎている場合は、"expired"クラスを適用
-  const taskClass = isExpired ? 'task-item expired' : 'task-item';
+  // tasksの中身を表示
+  tasks.forEach((task, index) => {
+    // 期限が過ぎているかどうかを確認
+    const isExpired = task.timelimit < currentTime;
+    // 期限が過ぎている場合は、"expired"クラスを適用
+    const taskClass = isExpired ? "task-item expired" : "task-item";
 
-htmlTags += `
+    htmlTags += `
   <div class="${taskClass}">
-    <p>${formatDate(new Date(task.timelimit))} ,${formatTime(new Date(task.timelimit))} ,${task.content}
+    <p>${formatDate(new Date(task.timelimit))} ,${formatTime(
+      new Date(task.timelimit)
+    )} ,${task.content}
     <button class="delete-button" onclick="deleteTask(${index})">削除</button></p>
   </div>
 `;
-});
+  });
 
   // tasksが空でない場合のみborderedクラスを追加
   if (tasks.length > 0) {
@@ -94,7 +96,7 @@ window.onload = () => {
 const deleteExpiredTasks = () => {
   // 現在の時間を取得
   const now = Date.now();
-  tasks = tasks.filter(task => {
+  tasks = tasks.filter((task) => {
     // タスクの期限から1週間後であれば削除
     return now < task.timelimit + 7 * 24 * 60 * 60 * 1000;
   });
@@ -155,7 +157,11 @@ const addTask = () => {
 
     // 現在の日時とタスクの期限を比較
     const now = new Date();
-    const oneWeekAgo = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 7);
+    const oneWeekAgo = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate() - 7
+    );
     if (limitdate < oneWeekAgo) {
       alert("期限が1週間以上前です。");
     } else {
