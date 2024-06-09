@@ -84,25 +84,26 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #ffffff;/* 日付を太字にするスタイル */
-.task-date {
-  font-weight: bold;
-}
+  color: #ffffff; /* 日付を太字にするスタイル */
   text-shadow: 1px 1px 10px #b6781c;
 }
 
+.task-date {
+  font-weight: bold;
+}
+
 .bus-button {
-  background-image: url('../img/bus.jpg'); /* バスボタンの背景画像を設定 */
+  background-image: url("../../img/index-img/bus.jpg"); /* バスボタンの背景画像を設定 */
 }
 
 .lunch-button {
-  background-image: url('../img/lunch.jpg'); /* ランチボタンの背景画像を設定 */
+  background-image: url("../../img/index-img/lunch.jpg"); /* ランチボタンの背景画像を設定 */
 }
 
 .class-button {
-  background-image: url('../img/map.jpg'); /* クラスボタンの背景画像を設定 */
+  background-image: url("../../img/index-img/map.jpg"); /* クラスボタンの背景画像を設定 */
 }
 
 .todo-button {
-  background-image: url('../img/ToDo.jpg'); /* ToDoボタンの背景画像を設定 */
+  background-image: url("../../img/index-img/ToDo.jpg"); /* ToDoボタンの背景画像を設定 */
 }

@@ -5,9 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>D-Cam</title>
-    <link href="./css/header.css" rel="stylesheet" />
-    <link href="./css/footer.css" rel="stylesheet" />
-    <link href="./css/todo.css" rel="stylesheet" />
+    <script src="./js/common-js/common.js"></script>
+    <link href="./css/todo-css/todo.css" rel="stylesheet" />
+    <link href="./css/common-css/common.css" rel="stylesheet" />
   </head>
   <body>
     <!---------ここからheader--------->
@@ -15,7 +15,7 @@
       <div class="header-inner">
         <!-- ロゴ部分-->
         <a class="header-logo" href="todo.html">
-          <img src="./img/header-logo.png" alt="D-Cam" />
+          <img src="img/common-img/header-logo.png" alt="D-Cam" />
         </a>
         <!-- メニューボタン-->
         <button class="toggle-menu-button"></button>
@@ -39,21 +39,12 @@
       </div>
       <div>
         <form class="flex-container">
-          <label for="content">内容:</label><input
-            id="content"
-            name="content"
-            type="text"
-          /><br />
-          <label for="date">日付:</label><input
-            id="date"
-            name="date"
-            type="date"
-          /><br />
-          <label for="time">時間:</label><input
-            type="time"
-            name="time"
-            id="time"
-          /><br />
+          <label for="content">内容:</label
+          ><input id="content" name="content" type="text" /><br />
+          <label for="date">日付:</label
+          ><input id="date" name="date" type="date" /><br />
+          <label for="time">時間:</label
+          ><input type="time" name="time" id="time" /><br />
           <input type="button" id="button" value="登録" />
         </form>
       </div>
@@ -63,7 +54,6 @@
       <div id="task-output">
         <!-- ここにpタグでToDoリスト(task)を列挙する -->
         <!-- 日付を表示するためのspanタグを追加 -->
-        <p><span class="task-date"></span> その他のタスク詳細</p>
       </div>
     </main>
     <script src="./js/todo.js"></script>
@@ -80,7 +70,7 @@
       </nav>
       <!-- フッターロゴ -->
       <a class="footer-logo" href="todo.html">
-        <img src="./img/footer-logo.png" alt="D-Cam" />
+        <img src="img/common-img/footer-logo.png" alt="D-Cam" />
       </a>
       <!-- 著作権表示 -->
       <p class="copyright"><small>&copy;teamD</small></p>

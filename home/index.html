@@ -6,10 +6,9 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>D-Cam</title>
-      <script src="./js/index.js"></script>
-      <link href="./css/header.css" rel="stylesheet" />
-      <link href="./css/footer.css" rel="stylesheet" />
-      <link href="./css/index.css" rel="stylesheet" />
+      <script src="./js/common-js/common.js"></script>
+      <link href="./css/index-css/index.css" rel="stylesheet" />
+      <link href="./css/common-css/common.css" rel="stylesheet" />
     </head>
     <body>
       <!---------ここからheader--------->
@@ -17,7 +16,7 @@
         <div class="header-inner">
           <!-- ロゴ部分-->
           <a class="header-logo" href="home.html">
-            <img src="./img/header-logo.png" alt="D-Cam" />
+            <img src="img/common-img/header-logo.png" alt="D-Cam" />
           </a>
           <!-- メニューボタン-->
           <button class="toggle-menu-button"></button>
@@ -41,13 +40,21 @@
           <tr>
             <td>
               <!-- バス時刻表へのボタン -->
-              <button type="button" class="bus-button" onclick="location.replace('app1.html');">
+              <button
+                type="button"
+                class="bus-button"
+                onclick="location.replace('app1.html');"
+              >
                 Bus Schedule
               </button>
             </td>
             <td>
               <!-- ランチ選択へのボタン -->
-              <button type="button" class="lunch-button" onclick="location.replace('app2.html');">
+              <button
+                type="button"
+                class="lunch-button"
+                onclick="location.replace('app2.html');"
+              >
                 Lunch Selection
               </button>
             </td>
@@ -55,13 +62,21 @@
           <tr>
             <td>
               <!-- 次の授業へのボタン -->
-              <button type="button" class="class-button" onclick="location.replace('app3.html');">
+              <button
+                type="button"
+                class="class-button"
+                onclick="location.replace('app3.html');"
+              >
                 Next Class
               </button>
             </td>
             <td>
               <!-- todoへのボタン -->
-              <button type="button" class="todo-button" onclick="location.replace('app4.html');">
+              <button
+                type="button"
+                class="todo-button"
+                onclick="location.replace('app4.html');"
+              >
                 ToDo List
               </button>
             </td>
@@ -82,7 +97,7 @@
         </nav>
         <!-- フッターロゴ -->
         <a class="footer-logo" href="home.html">
-          <img src="./img/footer-logo.png" alt="D-Cam" />
+          <img src="img/common-img/footer-logo.png" alt="D-Cam" />
         </a>
         <!-- 著作権表示 -->
         <p class="copyright"><small>&copy;teamD</small></p>
