@@ -11,20 +11,18 @@ let tasks = [];
 // 現在の時間の取得
 const currentTime = new Date().getTime();
 
-// 日時をフォーマットする関数
+// 日付をフォーマットする関数
 function formatDate(date) {
   const month = ("0" + (date.getMonth() + 1)).slice(-2); // 月は0から始まるため、1を足す
   const day = ("0" + date.getDate()).slice(-2); // 日付を取得
-
-  // フォーマットした日時を返す
+  // フォーマットした日付を返す
   return `${month}/${day}`;
 }
 
-// 日時をフォーマットする関数
+// 時間をフォーマットする関数
 function formatTime(date) {
   const hours = ("0" + date.getHours()).slice(-2); // 時間を取得
   const minutes = ("0" + date.getMinutes()).slice(-2); // 分を取得
-
   // フォーマットした日時を返す
   return `${hours}:${minutes}`;
 }
@@ -35,30 +33,24 @@ const displayTasks = () => {
   let htmlTags = "";
   // task-outputの要素を取得
   const taskOutput = document.getElementById("task-output");
-
   // 現在の時間の取得
   const currentTime = new Date().getTime();
-
   // tasksをtimelimitでソート
   tasks.sort((a, b) => a.timelimit - b.timelimit);
-
   // tasksの中身を表示
   tasks.forEach((task, index) => {
     // 期限が過ぎているかどうかを確認
     const isExpired = task.timelimit < currentTime;
     // 期限が過ぎている場合は、"expired"クラスを適用
     const taskClass = isExpired ? "task-item expired" : "task-item";
-
     htmlTags += `
   <div class="${taskClass}">
     <p>${formatDate(new Date(task.timelimit))} ,${formatTime(
       new Date(task.timelimit)
     )} ,${task.content}
     <button class="delete-button" onclick="deleteTask(${index})">削除</button></p>
-  </div>
-`;
+  </div>`;
   });
-
   // tasksが空でない場合のみborderedクラスを追加
   if (tasks.length > 0) {
     taskOutput.classList.add("bordered");
@@ -67,10 +59,48 @@ const displayTasks = () => {
     taskOutput.classList.remove("bordered");
     taskOutput.style.display = "none"; // タスクが存在しない場合は非表示
   }
-
   // htmlTagsをtaskOutputに表示
   taskOutput.innerHTML = htmlTags;
 };
+
+document.addEventListener("DOMContentLoaded", () => {
+  // ドキュメントの読み込みが完了したらイベントリスナーを設定
+  const filterSelect = document.getElementById("filter"); // フィルタ選択の要素を取得
+  filterSelect.addEventListener("change", filterTasks); // 選択が変更されたらfilterTasks関数を実行
+});
+
+function filterTasks() {
+  // タスクをフィルタリングして表示する関数
+  const selectedCategory = document.getElementById("filter").value; // 選択されたカテゴリーを取得
+  const taskOutput = document.getElementById("task-output"); // タスクを表示する要素を取得
+  taskOutput.innerHTML = ""; // 既存のタスクをクリア
+  const currentTime = new Date().getTime(); // 現在の時間の取得
+
+  // 選択されたカテゴリーに基づいてタスクをフィルタリング
+  const filteredTasks = tasks.filter(
+    (task) => task.category === selectedCategory || selectedCategory === "all"
+  );
+
+  // フィルタリングされたタスクを表示エリアに追加
+  filteredTasks.forEach((task, index) => {
+    // 期限が過ぎているかどうかを確認
+    const isExpired = task.timelimit < currentTime;
+    // 期限が過ぎている場合は、"expired"クラスを適用
+    const taskClass = isExpired ? "task-item expired" : "task-item";
+    const taskElement = document.createElement("div"); // 新しい<div>要素を作成
+    taskElement.className = taskClass; // タスクアイテム用のクラスを適用
+
+    // タスクの内容、期限、時間を含むHTMLを生成
+    taskElement.innerHTML = `
+      <p>${formatDate(new Date(task.timelimit))}, ${formatTime(
+      new Date(task.timelimit)
+    )}, ${task.content}
+      <button class="delete-button" onclick="deleteTask(${index})">削除</button></p>
+    `;
+
+    taskOutput.appendChild(taskElement); // 作成した要素を表示エリアに追加
+  });
+}
 
 // タスクを削除する関数
 const deleteTask = (index) => {
@@ -104,13 +134,9 @@ const deleteExpiredTasks = () => {
   localStorage.setItem("local-tasks", JSON.stringify(tasks));
 };
 
-// 1時間ごとに期限が過ぎたタスクを削除
-setInterval(deleteExpiredTasks, 60 * 60 * 1000);
-
 // localStorageに存在するかどうかの確認
 // 存在すればそのままtasksに格納
 const localTasks = localStorage.getItem("local-tasks");
-
 if (!localTasks) {
   // ローカルストレージにtaskが無い時
   console.log("none");
@@ -140,7 +166,12 @@ const createDatetimeArray = (date, time) => {
 
 // タスクを追加する関数
 const addTask = () => {
-  if (!content.value || !date.value || !time.value) {
+  if (
+    !content.value ||
+    !date.value ||
+    !time.value ||
+    category.selectedIndex <= 0
+  ) {
     alert("全項目を入力してください");
   } else {
     // 入力された日時を配列に格納
@@ -154,7 +185,8 @@ const addTask = () => {
       timearr[3],
       timearr[4]
     );
-
+    // 授業区分の値を取得
+    const category = document.getElementById("category").value;
     // 現在の日時とタスクの期限を比較
     const now = new Date();
     const oneWeekAgo = new Date(
@@ -166,15 +198,19 @@ const addTask = () => {
       alert("期限が1週間以上前です。");
     } else {
       // ローカルへ保存前にtasksに格納する
-      tasks.push({ content: content.value, timelimit: limitdate.getTime() });
+      tasks.push({
+        content: content.value,
+        timelimit: limitdate.getTime(),
+        category: category,
+      });
       // ローカルストレージに格納するときはJSON.stringify()
       localStorage.setItem("local-tasks", JSON.stringify(tasks));
       displayTasks();
-
       // 入力欄をクリア
       content.value = "";
       date.value = "";
       time.value = "";
+      document.getElementById("category").selectedIndex = 0;
     }
   }
 };

@@ -45,8 +45,23 @@
           ><input id="date" name="date" type="date" /><br />
           <label for="time">時間:</label
           ><input type="time" name="time" id="time" /><br />
+          <label for="category">区分:</label
+          ><select id="category" name="category">
+            <option value="" selected disabled></option>
+            <option value="required">必修</option>
+            <option value="elective">選択</option>
+            <option value="etcetera">その他</option>
           <input type="button" id="button" value="登録" />
         </form>
+      </div>
+      <div class="filter">
+        <label for="filter">表示:</label
+        ><select id="filter" name="filter">
+          <option value="all" selected>全て</option>
+          <option value="required">必修</option>
+          <option value="elective">選択</option>
+          <option value="etcetera">その他</option>
+        </select>
       </div>
       <div id="input-area">
         <!-- ここに入力フォームが入ります -->
