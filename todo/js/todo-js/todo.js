@@ -48,7 +48,7 @@ const displayTasks = () => {
     <p>${formatDate(new Date(task.timelimit))} ,${formatTime(
       new Date(task.timelimit)
     )} ,${task.content}
-    <button class="delete-button" onclick="deleteTask(${index})">削除</button></p>
+    <button class="delete-button" onclick="deleteTask(${index})">完了</button></p>
   </div>`;
   });
   // tasksが空でない場合のみborderedクラスを追加
