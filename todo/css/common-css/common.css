@@ -130,7 +130,7 @@ img {
     left: 0;
     right: 0;
     color: #ffffff;
-    background-color: #24211b;
+    background-color: #736e62;
     padding-top: 30px;
     padding-bottom: 50px;
     display: none;
@@ -144,7 +144,7 @@ img {
     display: block;
     width: 44px;
     height: 34px;
-    background-image: url("../../img/common-img/icon-menu.png");
+    background-image: url(../../img/common-img/icon-menu.png);
     background-size: 50%;
     background-position: center;
     background-repeat: no-repeat;

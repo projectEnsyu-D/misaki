@@ -4,21 +4,21 @@
 *,
 ::before,
 ::after {
-  padding: 0; /* 内側の余白を0に設定 */
-  margin: 0; /* 外側の余白を0に設定 */
-  box-sizing: border-box; /* ボックスのサイズ計算をborder-boxモデルに設定 */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 /* リスト要素に対する設定 */
 ul,
 ol {
-  list-style: none; /* リストマーカーを非表示に設定 */
+  list-style: none;
 }
 
 /* リンク要素に対する設定 */
 a {
-  color: inherit; /* 色を親要素から継承 */
-  text-decoration: none; /* 下線を非表示に設定 */
+  color: inherit;
+  text-decoration: none;
 }
 
 /* htmlとbody要素の高さを100%に設定 */
@@ -29,13 +29,18 @@ body {
 
 /* body要素に対する設定 */
 body {
-  font-family: sans-serif; /* フォントをサンセリフに設定 */
-  font-size: 16px; /* フォントサイズを16pxに設定 */
-  color: #000000; /* 文字色を黒に設定 */
-  line-height: 1; /* 行の高さを1に設定 */
-  background-color: #ffffff; /* 背景色を白に設定 */
-  display: flex; /* Flexboxを使用して要素を配置 */
-  flex-direction: column; /* 要素を縦方向に並べる */
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #000000;
+  line-height: 1;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* header要素に対する設定 */
+header {
+  margin-bottom: 0;
 }
 
 /* title要素に適用するスタイル */
@@ -48,107 +53,134 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100vw;
+  margin-top: 0;
 }
 
 /* main要素に適用するスタイル */
 main {
-  font-size: 62.5%; /* フォントサイズを設定 */
-  display: flex; /* Flexboxを使用 */
-  flex-wrap: wrap; /* 要素がコンテナを超える場合に折り返す */
-  flex-direction: column; /* 縦方向に要素を並べる */
-  justify-content: space-around; /* 横方向の間隔を均等にする */
-  align-items: center; /* 位置を中央にする */
-  margin-top: 3rem; /* 上部のマージンを3remに設定 */
-  margin-bottom: 3rem; /* 下部のマージンを3remに設定 */
-  flex-grow: 1; /* 利用可能なスペースをすべて占めるようにする */
+  font-size: 62.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-grow: 1;
 }
 
 /* h1要素に適用するスタイル */
 form {
-  font-size: 62.5%; /* フォントサイズを設定 */
-  display: flex; /* Flexboxを使用 */
-  flex-wrap: wrap; /* 要素がコンテナを超える場合に折り返す */
-  justify-content: space-around; /* 横方向の間隔を均等にする */
-  align-items: center; /* 縦方向の位置を中央にする */
-  margin-top: 3rem; /* 上部にマージンを追加 */
-  margin-bottom: 3rem; /* 下部にマージンを追加 */
+  font-size: 62.5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
+/* フォーム要素のスタイル */
 form label {
-  font-size: 1rem; /* 文字を大きくする */
-  color: #000000; /* 文字色を黒に設定 */
-  margin-right: 0.3rem; /* 右にマージンを追加 */
+  font-size: 1rem;
+  color: #000000;
+  margin-right: 0.3rem;
 }
 
 /* 入力欄に適用するスタイル */
 form input[type="text"],
 form input[type="date"],
 form input[type="time"],
-form select{
-  font-size: 1.2rem; /* 文字を大きくする */
-  letter-spacing: 2.5px; /* 文字間隔を2.5pxに設定 */
-  color: #000000; /* 文字色を黒に設定 */
-  background-color: #e9fcfd; /* 入力欄の背景色を白色に設定 */
-  border: none; /* 枠線を削除 */
-  padding: 0.5rem; /* 内側の余白を追加 */
-  cursor: pointer; /* マウスカーソルを指マークに変更 */
-  border-radius: 10px; /* 角を丸くする */
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1); /* ボタンに影を追加（右下に2pxずらし、ぼかし15px、色は黒、透明度は10%） */
-  margin-right: 1rem; /* 右にマージンを追加 */
+form select,
+filter {
+  font-size: 1.2rem;
+  letter-spacing: 2.5px;
+  color: #000000;
+  background-color: #e9fcfd;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  margin-right: 1rem;
 }
 
 /* ボタンに適用するスタイル */
 form input[type="button"] {
-  font-family: "Roboto", sans-serif; /* フォントをRobotoに設定、Robotoが利用できない場合はサンセリフフォントを使用 */
-  font-size: 1.2rem; /* 文字を大きくする */
-  text-transform: uppercase; /* テキストをすべて大文字に変換 */
-  letter-spacing: 2.5px; /* 文字間隔を2.5pxに設定 */
-  color: #000000; /* 文字色を白に設定 */
-  background-color: #ffffff; /* ボタンの背景色を青に設定 */
-  border: none; /* 枠線を削除 */
-  padding: 0.5rem 1rem; /* 内側の余白を追加 */
-  cursor: pointer; /* マウスカーソルを指マークに変更 */
-  border: 1px solid #d9d9d9; /* 枠線を追加 */
-  border-radius: 10px; /* 角を丸くする */
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1); /* ボタンに影を追加（右下に2pxずらし、ぼかし15px、色は黒、透明度は10%） */
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #000000;
+  background-color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 .delete-button {
-  font-family: "Roboto", sans-serif; /* フォントをRobotoに設定、Robotoが利用できない場合はサンセリフフォントを使用 */
-  text-transform: uppercase; /* テキストをすべて大文字に変換 */
-  letter-spacing: 2.5px; /* 文字間隔を2.5pxに設定 */
-  color: #000000; /* 文字色を白に設定 */
-  background-color: #ffffff; /* ボタンの背景色を青に設定 */
-  border: none; /* 枠線を削除 */
-  padding: 0.4rem 1rem; /* 内側の余白を追加 */
-  cursor: pointer; /* マウスカーソルを指マークに変更 */
-  border: 1px solid #d9d9d9; /* 枠線を追加 */
-  border-radius: 10px; /* 角を丸くする */
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1); /* ボタンに影を追加（右下に2pxずらし、ぼかし15px、色は黒、透明度は10%） */
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #000000;
+  background-color: #ffffff;
+  border: none;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* ボタンにマウスが乗った時のスタイル */
 form input[type="button"]:hover,
 .delete-button:hover {
-  background-color: #000000; /* ボタンの背景色を黒に設定 */
-  box-shadow: 0px 15px 20px rgba(131, 147, 140, 0.4); /* ボタンに影を追加（右下に15pxずらし、ぼかし20px、色はrgb(131, 147, 140)、透明度は40%） */
-  color: #fff; /* テキストの色を白に設定 */
-  transform: translateY(-3px); /* ボタンを上に7px移動 */
-  transition: all 0.3s ease 0s; /* 全てのプロパティの変化を0.3秒かけて行い、変化はゆっくりと始まりゆっくりと終わる */
+  background-color: #000000;
+  box-shadow: 0px 15px 20px rgba(131, 147, 140, 0.4);
+  color: #fff;
+  transform: translateY(-3px);
+  transition: all 0.3s ease 0s;
 }
 
 /* 出力エリアに適用するスタイル */
 #task-output p {
-  font-size: 18px; /* フォントサイズを設定 */
-  border: 1px solid #000000; /* 枠線を追加 */
-  padding: 1rem; /* 内側の余白を追加 */
-  margin-bottom: 1rem; /* 下部にマージンを追加 */
-  border-radius: 10px; /* 角を丸くする */
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1); /* ボタンに影を追加（右下に2pxずらし、ぼかし15px、色は黒、透明度は10%） */
+  font-size: 18px;
+  border: 1px solid #000000;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* 期限切れのタスクに適用するスタイル */
 .expired {
-  background-color: #ffadad; /* 背景色を赤に設定 */
-  border-radius: 10px; /* 角を丸くする */
+  background-color: #ffadad;
+  border-radius: 10px;
+}
+
+/* 以下モバイル用のスタイル */
+@media (max-width: 800px) {
+  .title {
+    margin-top: 3rem;
+  }
+
+  /* フレックスコンテナの基本スタイル */
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* フォーム要素のスタイル */
+  form label,
+  form input,
+  form select {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* 期限切れのタスクに適用するスタイル */
+  .expired {
+    background-color: #ffadad;
+    border-radius: 10px;
+  }
 }

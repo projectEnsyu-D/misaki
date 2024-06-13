@@ -1,107 +1,96 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <html>
-    <head>
-      <!-- 文字コード、ビューポート、タイトル、スクリプト、スタイルシートの設定 -->
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>D-Cam</title>
-      <script src="./js/common-js/common.js"></script>
-      <link href="./css/index-css/index.css" rel="stylesheet" />
-      <link href="./css/common-css/common.css" rel="stylesheet" />
-    </head>
-    <body>
-      <!---------ここからheader--------->
-      <header class="header">
-        <div class="header-inner">
-          <!-- ロゴ部分-->
-          <a class="header-logo" href="home.html">
-            <img src="img/common-img/header-logo.png" alt="D-Cam" />
-          </a>
-          <!-- メニューボタン-->
-          <button class="toggle-menu-button"></button>
-          <!-- サイトメニュー-->
-          <div class="header-site-menu">
-            <nav class="site-menu">
-              <ul>
-                <li><a href="bus.html">BUS</a></li>
-                <li><a href="lunch.html">LUNCH</a></li>
-                <li><a href="class.html">CLASS</a></li>
-                <li><a href="todo.html">TODO</a></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </header>
-
-      <!-------ここからmain--------->
-      <main>
-        <table>
-          <tr>
-            <td>
-              <!-- バス時刻表へのボタン -->
-              <button
-                type="button"
-                class="bus-button"
-                onclick="location.replace('app1.html');"
-              >
-                Bus Schedule
-              </button>
-            </td>
-            <td>
-              <!-- ランチ選択へのボタン -->
-              <button
-                type="button"
-                class="lunch-button"
-                onclick="location.replace('app2.html');"
-              >
-                Lunch Selection
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <!-- 次の授業へのボタン -->
-              <button
-                type="button"
-                class="class-button"
-                onclick="location.replace('app3.html');"
-              >
-                Next Class
-              </button>
-            </td>
-            <td>
-              <!-- todoへのボタン -->
-              <button
-                type="button"
-                class="todo-button"
-                onclick="location.replace('app4.html');"
-              >
-                ToDo List
-              </button>
-            </td>
-          </tr>
-        </table>
-      </main>
-
-      <!------ここからfooter-------->
-      <footer class="footer">
-        <!-- フッターメニュー -->
-        <nav class="site-menu">
-          <ul>
-            <li><a href="bus.html">BUS</a></li>
-            <li><a href="lunch.html">LUNCH</a></li>
-            <li><a href="class.html">CLASS</a></li>
-            <li><a href="todo.html">TODO</a></li>
-          </ul>
-        </nav>
-        <!-- フッターロゴ -->
-        <a class="footer-logo" href="home.html">
-          <img src="img/common-img/footer-logo.png" alt="D-Cam" />
+  <head>
+    <!-- 文字コード、ビューポート、タイトル、スクリプト、スタイルシートの設定 -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D-Cam</title>
+    <script src="./js/common-js/toggle-menu.js"></script>
+    <link href="./css/index-css/index.css" rel="stylesheet" />
+    <link href="./css/common-css/common.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!---------ここからheader--------->
+    <header class="header">
+      <div class="header-inner">
+        <!-- ロゴ部分-->
+        <a class="header-logo" href="home.html">
+          <img src="img/common-img/header-logo.png" alt="D-Cam" />
         </a>
-        <!-- 著作権表示 -->
-        <p class="copyright"><small>&copy;teamD</small></p>
-      </footer>
-    </body>
-  </html>
+        <!-- メニューボタン-->
+        <button class="toggle-menu-button"></button>
+        <!-- サイトメニュー-->
+        <div class="header-site-menu">
+          <nav class="site-menu">
+            <ul>
+              <li><a href="bus.html">BUS</a></li>
+              <li><a href="lunch.html">LUNCH</a></li>
+              <li><a href="class.html">CLASS</a></li>
+              <li><a href="todo.html">TODO</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-------ここからmain--------->
+    <main class="flex-container">
+      <div class="title">
+        <h1>HOME</h1>
+      </div>
+      <div class="button-container">
+        <!-- バス時刻表へのボタン -->
+        <button
+          type="button"
+          class="bus-button"
+          onclick="location.replace('app1.html');"
+        >
+          Bus Schedule
+        </button>
+        <!-- ランチ選択へのボタン -->
+        <button
+          type="button"
+          class="lunch-button"
+          onclick="location.replace('app2.html');"
+        >
+          Lunch Selection
+        </button>
+        <!-- 次の授業へのボタン -->
+        <button
+          type="button"
+          class="class-button"
+          onclick="location.replace('app3.html');"
+        >
+          Next Class
+        </button>
+        <!-- todoへのボタン -->
+        <button
+          type="button"
+          class="todo-button"
+          onclick="location.replace('app4.html');"
+        >
+          ToDo List
+        </button>
+      </div>
+    </main>
+
+    <!------ここからfooter-------->
+    <footer class="footer">
+      <!-- フッターメニュー -->
+      <nav class="site-menu">
+        <ul>
+          <li><a href="bus.html">BUS</a></li>
+          <li><a href="lunch.html">LUNCH</a></li>
+          <li><a href="class.html">CLASS</a></li>
+          <li><a href="todo.html">TODO</a></li>
+        </ul>
+      </nav>
+      <!-- フッターロゴ -->
+      <a class="footer-logo" href="home.html">
+        <img src="img/common-img/footer-logo.png" alt="D-Cam" />
+      </a>
+      <!-- 著作権表示 -->
+      <p class="copyright"><small>&copy;teamD</small></p>
+    </footer>
+  </body>
 </html>
