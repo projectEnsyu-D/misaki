@@ -158,6 +158,12 @@ form input[type="button"]:hover,
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
+.display_data {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+}
+
 /* 期限切れのタスクに適用するスタイル */
 .expired {
   background-color: #ffadad;

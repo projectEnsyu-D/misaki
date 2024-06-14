@@ -38,9 +38,9 @@ const displayTasks = () => {
     const taskClass = isExpired ? "task-item expired" : "task-item";
     htmlTags += `
   <div class="${taskClass}">
-    <p>${formatDate(new Date(task.timelimit))} ,${formatTime(
-      new Date(task.timelimit)
-    )} ,${task.content}
+  <p><strong class="display_data">${formatDate(
+    new Date(task.timelimit)
+  )}</strong>${formatTime(new Date(task.timelimit))} ,${task.content}
     <button class="delete-button" onclick="deleteTask(${index})">完了</button></p>
   </div>`;
   });
@@ -90,7 +90,6 @@ window.onload = () => {
     deleteExpiredTasks();
   }
 };
-
 
 // 期限が過ぎたタスクを削除する関数
 const deleteExpiredTasks = () => {
