@@ -106,35 +106,45 @@ button {
   text-shadow: 1px 1px 10px #b6781c;
 }
 
+/* .task要素に適用するスタイル */
 .task-date {
   font-weight: bold;
 }
 
+/* バスボタンに適用する背景画像 */
 .bus-button {
   background-image: url("../../img/index-img/bus.jpg");
 }
 
+/* ランチボタンに適用する背景画像 */
 .lunch-button {
   background-image: url("../../img/index-img/lunch.jpg");
 }
 
+/* 授業ボタンに適用する背景画像 */
 .class-button {
   background-image: url("../../img/index-img/map.jpg");
 }
 
+/* ToDoボタンに適用する背景画像 */
 .todo-button {
   background-image: url("../../img/index-img/ToDo.jpg");
 }
 
+/* 以下はモバイル向け */
 @media (max-width: 800px) {
+  /* タイトルに適用するスタイル*/
   .title {
     margin-top: 3rem;
   }
+
+  /* コンテナに適用するスタイル */
   .button-container {
     flex-direction: column;
     align-items: center;
   }
 
+  /* ボタンに適用するスタイル */
   button {
     width: 25rem;
     height: 10rem;
@@ -142,6 +152,7 @@ button {
 }
 
 @media (min-width: 801px) {
+  /* ボタンに適用するスタイル */
   .button-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

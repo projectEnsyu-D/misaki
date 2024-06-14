@@ -102,6 +102,7 @@ form select,
   margin-right: 1rem;
 }
 
+/* フィルタリング選択欄に適用するスタイル*/
 #filter {
   margin-bottom: 1rem;
 }
@@ -122,6 +123,7 @@ form input[type="button"] {
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* 削除ボタンに適応するスタイル*/
 .delete-button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -163,11 +165,7 @@ form input[type="button"]:hover,
 }
 
 /* 以下モバイル用のスタイル */
-@media (max-width: 800px) {
-  .title {
-    margin-top: 3rem;
-  }
-
+@media (max-width: 970px) {
   /* フレックスコンテナの基本スタイル */
   .flex-container {
     flex-direction: column;
@@ -191,5 +189,11 @@ form input[type="button"]:hover,
   .expired {
     background-color: #ffadad;
     border-radius: 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  .title {
+    margin-top: 3rem;
   }
 }

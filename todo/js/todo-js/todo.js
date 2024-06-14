@@ -13,31 +13,24 @@ const currentTime = new Date().getTime();
 
 // 日付をフォーマットする関数
 function formatDate(date) {
-  const month = ("0" + (date.getMonth() + 1)).slice(-2); // 月は0から始まるため、1を足す
-  const day = ("0" + date.getDate()).slice(-2); // 日付を取得
-  // フォーマットした日付を返す
+  const month = ("0" + (date.getMonth() + 1)).slice(-2);
+  const day = ("0" + date.getDate()).slice(-2);
   return `${month}/${day}`;
 }
 
 // 時間をフォーマットする関数
 function formatTime(date) {
-  const hours = ("0" + date.getHours()).slice(-2); // 時間を取得
-  const minutes = ("0" + date.getMinutes()).slice(-2); // 分を取得
-  // フォーマットした日時を返す
+  const hours = ("0" + date.getHours()).slice(-2);
+  const minutes = ("0" + date.getMinutes()).slice(-2);
   return `${hours}:${minutes}`;
 }
 
 // タスクを表示する関数
 const displayTasks = () => {
-  // ここでhtmlTagsを初期化
   let htmlTags = "";
-  // task-outputの要素を取得
   const taskOutput = document.getElementById("task-output");
-  // 現在の時間の取得
   const currentTime = new Date().getTime();
-  // tasksをtimelimitでソート
   tasks.sort((a, b) => a.timelimit - b.timelimit);
-  // tasksの中身を表示
   tasks.forEach((task, index) => {
     // 期限が過ぎているかどうかを確認
     const isExpired = task.timelimit < currentTime;
@@ -54,42 +47,35 @@ const displayTasks = () => {
   // tasksが空でない場合のみborderedクラスを追加
   if (tasks.length > 0) {
     taskOutput.classList.add("bordered");
-    taskOutput.style.display = "block"; // タスクが存在する場合は表示
+    taskOutput.style.display = "block";
   } else {
     taskOutput.classList.remove("bordered");
-    taskOutput.style.display = "none"; // タスクが存在しない場合は非表示
+    taskOutput.style.display = "none";
   }
-  // htmlTagsをtaskOutputに表示
   taskOutput.innerHTML = htmlTags;
 };
-
+// ページ読み込み時にローカルストレージからタスクを取得し、期限が過ぎたタスクを削除
 document.addEventListener("DOMContentLoaded", () => {
-  // ドキュメントの読み込みが完了したらイベントリスナーを設定
-  const filterSelect = document.getElementById("filter"); // フィルタ選択の要素を取得
-  filterSelect.addEventListener("change", filterTasks); // 選択が変更されたらfilterTasks関数を実行
+  const filterSelect = document.getElementById("filter");
+  filterSelect.addEventListener("change", filterTasks);
 });
 
+// カテゴリーでタスクをフィルタリングする関数
 function filterTasks() {
-  // タスクをフィルタリングして表示する関数
-  const selectedCategory = document.getElementById("filter").value; // 選択されたカテゴリーを取得
-  const taskOutput = document.getElementById("task-output"); // タスクを表示する要素を取得
-  taskOutput.innerHTML = ""; // 既存のタスクをクリア
-  const currentTime = new Date().getTime(); // 現在の時間の取得
-
-  // 選択されたカテゴリーに基づいてタスクをフィルタリング
+  const selectedCategory = document.getElementById("filter").value;
+  const taskOutput = document.getElementById("task-output");
+  taskOutput.innerHTML = "";
+  const currentTime = new Date().getTime();
   const filteredTasks = tasks.filter(
     (task) => task.category === selectedCategory || selectedCategory === "all"
   );
 
   // フィルタリングされたタスクを表示エリアに追加
   filteredTasks.forEach((task, index) => {
-    // 期限が過ぎているかどうかを確認
     const isExpired = task.timelimit < currentTime;
-    // 期限が過ぎている場合は、"expired"クラスを適用
     const taskClass = isExpired ? "task-item expired" : "task-item";
-    const taskElement = document.createElement("div"); // 新しい<div>要素を作成
-    taskElement.className = taskClass; // タスクアイテム用のクラスを適用
-
+    const taskElement = document.createElement("div");
+    taskElement.className = taskClass;
     // タスクの内容、期限、時間を含むHTMLを生成
     taskElement.innerHTML = `
       <p>${formatDate(new Date(task.timelimit))}, ${formatTime(
@@ -97,40 +83,33 @@ function filterTasks() {
     )}, ${task.content}
       <button class="delete-button" onclick="deleteTask(${index})">削除</button></p>
     `;
-
-    taskOutput.appendChild(taskElement); // 作成した要素を表示エリアに追加
+    taskOutput.appendChild(taskElement);
   });
 }
 
 // タスクを削除する関数
 const deleteTask = (index) => {
-  // タスクを削除
   tasks.splice(index, 1);
-  // 更新したタスクを保存
   localStorage.setItem("local-tasks", JSON.stringify(tasks));
   displayTasks();
 };
 
 // ページ読み込み時にローカルストレージからタスクを取得し、期限が過ぎたタスクを削除
 window.onload = () => {
-  // ローカルストレージからタスクを取得
   const storedTasks = localStorage.getItem("local-tasks");
-  // タスクが存在する場合、tasksに格納
   if (storedTasks) {
     tasks = JSON.parse(storedTasks);
     deleteExpiredTasks();
   }
 };
 
+
 // 期限が過ぎたタスクを削除する関数
 const deleteExpiredTasks = () => {
-  // 現在の時間を取得
   const now = Date.now();
   tasks = tasks.filter((task) => {
-    // タスクの期限から1週間後であれば削除
     return now < task.timelimit + 7 * 24 * 60 * 60 * 1000;
   });
-  // 更新したタスクを保存
   localStorage.setItem("local-tasks", JSON.stringify(tasks));
 };
 
@@ -142,7 +121,6 @@ if (!localTasks) {
   console.log("none");
 } else {
   // ローカルストレージにタスクがある時
-  // ローカルストレージから取り出すときはJSON.parse()
   tasks = JSON.parse(localTasks);
   displayTasks();
 }
@@ -151,16 +129,12 @@ if (!localTasks) {
 // 入力された日付・時間を結合して数値の配列に変え、返り値にする
 const createDatetimeArray = (date, time) => {
   const datetimearr = [];
-  // dateをハイフン(-)で年・月・時に分割
   const datearr = date.split("-");
-  // timeをコロン(:)で時・分に分割
   const timearr = time.split(":");
-  // 二つの配列を結合したのち数値に変換→空の配列に格納
   const tmparr = datearr.concat(timearr);
   tmparr.map((t) => {
     datetimearr.push(Number(t));
   });
-  // 返した配列でunix時間へ変換
   return datetimearr;
 };
 
@@ -174,10 +148,7 @@ const addTask = () => {
   ) {
     alert("全項目を入力してください");
   } else {
-    // 入力された日時を配列に格納
     const timearr = createDatetimeArray(date.value, time.value);
-    // taskに格納する際、unix時間にする
-    // new Dateに日時を指定する際、月だけ1少ない数じゃないと翌月になる
     const limitdate = new Date(
       timearr[0],
       timearr[1] - 1,
@@ -185,9 +156,7 @@ const addTask = () => {
       timearr[3],
       timearr[4]
     );
-    // 授業区分の値を取得
     const category = document.getElementById("category").value;
-    // 現在の日時とタスクの期限を比較
     const now = new Date();
     const oneWeekAgo = new Date(
       now.getFullYear(),
@@ -197,13 +166,11 @@ const addTask = () => {
     if (limitdate < oneWeekAgo) {
       alert("期限が1週間以上前です。");
     } else {
-      // ローカルへ保存前にtasksに格納する
       tasks.push({
         content: content.value,
         timelimit: limitdate.getTime(),
         category: category,
       });
-      // ローカルストレージに格納するときはJSON.stringify()
       localStorage.setItem("local-tasks", JSON.stringify(tasks));
       displayTasks();
       // 入力欄をクリア
