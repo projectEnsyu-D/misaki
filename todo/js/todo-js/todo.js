@@ -63,28 +63,16 @@ document.addEventListener("DOMContentLoaded", () => {
 // カテゴリーでタスクをフィルタリングする関数
 function filterTasks() {
   const selectedCategory = document.getElementById("filter").value;
-  const taskOutput = document.getElementById("task-output");
-  taskOutput.innerHTML = "";
   const currentTime = new Date().getTime();
+  const originalTasks = tasks.slice(); // 元のtasks配列を保存
   const filteredTasks = tasks.filter(
     (task) => task.category === selectedCategory || selectedCategory === "all"
   );
 
-  // フィルタリングされたタスクを表示エリアに追加
-  filteredTasks.forEach((task, index) => {
-    const isExpired = task.timelimit < currentTime;
-    const taskClass = isExpired ? "task-item expired" : "task-item";
-    const taskElement = document.createElement("div");
-    taskElement.className = taskClass;
-    // タスクの内容、期限、時間を含むHTMLを生成
-    taskElement.innerHTML = `
-      <p>${formatDate(new Date(task.timelimit))}, ${formatTime(
-      new Date(task.timelimit)
-    )}, ${task.content}
-      <button class="delete-button" onclick="deleteTask(${index})">削除</button></p>
-    `;
-    taskOutput.appendChild(taskElement);
-  });
+  // filteredTasksをtasksに一時的に設定
+  tasks = filteredTasks;
+  displayTasks(); // displayTasksを呼び出してフィルタリングされたタスクを表示
+  tasks = originalTasks; // 元のtasks配列に戻す
 }
 
 // タスクを削除する関数
